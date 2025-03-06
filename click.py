@@ -5,6 +5,10 @@ import re
 import sys
 
 your_ip, port = sys.argv[1], sys.argv[2]
+if your_ip and port < 1:
+    print("Usage: python3 click.py <your_ip> <port>")
+    sys.exit(1)
+    
 url = "http://clicker.htb/"
 s = requests.Session()
 userpass = ''.join(c for c in (chr(random.randrange(97, 123)) for _ in range(5)))
